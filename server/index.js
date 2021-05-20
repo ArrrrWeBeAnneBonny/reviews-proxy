@@ -1,11 +1,12 @@
 const express = require('express');
 const app = express();
-const morgan = require('morgan');
 const {createProxyMiddleware} = require('http-proxy-middleware');
 
-app.use(morgan('dev'));
+console.log(__dirname + '/../client');
+app.use(express.static(__dirname + '/../client'));
 
-const port = 3000;
+
+const PORT = 3000;
 const host = 'localhost';
 let reviewsServer = 'http://localhost:3001';
 
@@ -17,11 +18,12 @@ app.use('/reviews', createProxyMiddleware({
   }
 }))
 
-app.listen(port, (err) => {
+
+app.listen(PORT, (err) => {
   if (err) {
     console.log('error connecting to reviews proxy', err);
   } else {
-    console.log(`connected to reviews proxy on ${port}`);
+    console.log(`connected to reviews proxy on ${PORT}`);
   }
 });
 
