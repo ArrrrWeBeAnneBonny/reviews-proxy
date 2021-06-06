@@ -8,7 +8,7 @@ app.use(cors());
 app.use(express.static(__dirname + '/../client'));
 
 
-const PORT = 80;
+const PORT = 3000;
 const host = 'localhost';
 let reviewsServer = 'http://ec2-54-193-152-3.us-west-1.compute.amazonaws.com';
 
